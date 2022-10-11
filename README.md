@@ -1,6 +1,3 @@
-Master: [![Build Status](https://travis-ci.com/pavankjadda/eShopping.svg?branch=master)](https://travis-ci.com/pavankjadda/eShopping)
-
-Development: [![Build Status](https://travis-ci.com/pavankjadda/eShopping.svg?branch=development)](https://travis-ci.com/pavankjadda/eShopping)
 
 # eShopping Application
 
@@ -39,7 +36,7 @@ Make sure docker is up and running on your local machine
    ```
    UPDATE `spring_security_data`.`user` SET `password`=<encrypted password> WHERE `username`='admin';
    ```
-9. For better experience go to my Angular9 project [eShopping-UI](https://github.com/pavankjadda/eShopping-UI) and run it see nice UI
+9. For better experience go to my Angular9 project [eShopping-UI](https://github.com/atulyw/ecom-service) and run it see nice UI
 
 ## Technologies 
 1. Java 11
