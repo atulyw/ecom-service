@@ -1,0 +1,48 @@
+apiVersion: "v1"
+kind: "Namespace"
+metadata:
+  name: "dev"
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ecom-service
+  namespace: dev
+  labels:
+    app: ecom-service
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ecom-service
+  strategy:
+    rollingUpdate:
+      maxSurge: 50%
+    type: RollingUpdate
+  template:
+    metadata:
+      labels:
+        app: ecom-service
+    spec:
+      containers:
+        - name: ecom-service
+          image: 527745292178.dkr.ecr.eu-west-1.amazonaws.com/eshopping-service:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8082
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ecom-service
+  namespace: dev
+  labels:
+    app: ecom-service
+spec:
+  type: ClusterIP
+  selector:
+    app: ecom-service
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8082
